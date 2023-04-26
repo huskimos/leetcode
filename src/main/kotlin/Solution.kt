@@ -119,10 +119,38 @@ abstract class Solution : Problem {
         }
         return null
     }
+
+    fun swap(nums: IntArray, i: Int, j: Int) {
+        Objects.checkIndex(i, nums.size)
+        Objects.checkIndex(j, nums.size)
+        var temp = nums[i]
+        nums[i] = nums[j]
+        nums[j] = temp
+    }
+
+    fun swap(nums: CharArray, i: Int, j: Int) {
+        Objects.checkIndex(i, nums.size)
+        Objects.checkIndex(j, nums.size)
+        var temp = nums[i]
+        nums[i] = nums[j]
+        nums[j] = temp
+    }
+
+    private fun IntArray.reverse(fromIndex: Int, toIndex: Int) {
+        val midPoint = (fromIndex + toIndex) / 2
+        if (fromIndex == midPoint) return
+        var reverseIndex = toIndex - 1
+        for (index in fromIndex until midPoint) {
+            val tmp = this[index]
+            this[index] = this[reverseIndex]
+            this[reverseIndex] = tmp
+            reverseIndex--
+        }
+    }
 }
 
 fun main() {
-    val solution = Solution30()
+    val solution = Solution31()
     println(solution.question())
     solution.solve()
 }
