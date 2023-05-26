@@ -150,7 +150,7 @@ abstract class Solution : Problem {
 }
 
 fun main() {
-    val solution = Solution58()
+    val solution = Solution59()
     println(solution.question())
     solution.solve()
 }
